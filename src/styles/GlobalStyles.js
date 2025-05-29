@@ -29,8 +29,9 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-    margin: 3.125rem;
+    margin: 0;
     font-family: sans-serif;
+    background-color: #FCFCFC;
     }
 
 `;
