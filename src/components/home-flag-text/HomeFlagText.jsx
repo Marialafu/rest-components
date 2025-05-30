@@ -1,20 +1,32 @@
+import {
+  StyledSubtitle,
+  StyledSubtitleContainer,
+  StyledTagsContainer,
+  StyledText,
+  StyledTextContainer,
+  StyledTitle
+} from './home-flag-text';
+
 const HomeFlagText = ({ country }) => {
   return (
-    <>
-      <h2>{country.name.common}</h2>
-      <div>
-        <span>Population</span>
-        <span>{country.population}</span>
-      </div>
-      <div>
-        <span>Region</span>
-        <span>{country.region}</span>
-      </div>
-      <div>
-        <span>Capital</span>
-        <span>{country.capital}</span>
-      </div>
-    </>
+    <StyledTextContainer>
+      <StyledTitle>{country.name.common}</StyledTitle>
+      <StyledSubtitleContainer>
+        <StyledTagsContainer>
+          <StyledSubtitle>Population:</StyledSubtitle>
+          <StyledText>{country.population}</StyledText>
+        </StyledTagsContainer>
+        <StyledTagsContainer>
+          <StyledSubtitle>Region:</StyledSubtitle>
+          <StyledText>{country.region}</StyledText>
+        </StyledTagsContainer>
+
+        <StyledTagsContainer>
+          <StyledSubtitle>Capital:</StyledSubtitle>
+          <StyledText>{country.capital}</StyledText>
+        </StyledTagsContainer>
+      </StyledSubtitleContainer>
+    </StyledTextContainer>
   );
 };
 

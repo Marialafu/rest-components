@@ -6,9 +6,18 @@ import Layout from '../../components/layout/Layout';
 const Router = () => {
   return (
     <Routes>
-      <Route path='/' element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path='flag' element={<Flag />} />
+      <Route
+        path='/'
+        element={<Layout />}
+      >
+        <Route
+          index
+          element={<Home />}
+        />
+        <Route
+          path='country/:countryName'
+          element={<Flag />}
+        />
       </Route>
     </Routes>
   );

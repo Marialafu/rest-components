@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import {
   StyledHeader,
   StyledImgMode,
@@ -9,7 +10,9 @@ import {
 const Header = () => {
   return (
     <StyledHeader>
-      <StyledTitle>Where in the world?</StyledTitle>
+      <Link to={'/'}>
+        <StyledTitle>Where in the world?</StyledTitle>
+      </Link>
       <StyledMode>
         <StyledImgMode src='public/assets/images/light-mode.png' />
         <StyledTextMode>Light Mode</StyledTextMode>
