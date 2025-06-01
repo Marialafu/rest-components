@@ -1,12 +1,15 @@
 import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyles } from './styles/GlobalStyles';
 import Router from './lib/router/Router';
+import ModeProviders from './providers/ModeProviders';
 
 const App = () => {
   return (
     <BrowserRouter>
       <GlobalStyles />
-      <Router />
+      <ModeProviders>
+        <Router />
+      </ModeProviders>
     </BrowserRouter>
   );
 };

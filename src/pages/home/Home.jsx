@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import Filters from '../../components/filters/Filters';
 import FlagContainer from '../../components/flag-container/FlagContainer';
 import SearcherBar from '../../components/searcher-bar/SearcherBar';
 import { StyledMain } from './home.styled';
+import { ModeContext } from '../../contexts/ModesContext';
 
 const Home = () => {
   const [countries, setCountries] = useState();
+  const { lightMode } = useContext(ModeContext);
 
   const [searcherBar, setSearcherBar] = useState('');
   const [regionFilter, setRegionFilter] = useState('Search for regions');
@@ -21,7 +23,7 @@ const Home = () => {
   }, []);
 
   return (
-    <StyledMain>
+    <StyledMain $lightMode={lightMode}>
       <SearcherBar setSearcherBar={setSearcherBar} />
       <Filters setRegionFilter={setRegionFilter} />
       <FlagContainer countries={filteredCountries} />

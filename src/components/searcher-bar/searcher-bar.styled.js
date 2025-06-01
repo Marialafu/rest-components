@@ -5,12 +5,13 @@ const StyledContainer = styled.div`
   padding: 1rem 0 1rem 2rem;
   display: flex;
   gap: 1.5rem;
-  background-color: #ffffff;
+  background-color: ${({$lightMode}) => $lightMode ? '#FCFCFC' : '#2B3844'};
   border-radius: 0.3125rem;
 `;
 
 const StyledInput = styled.input`
   border: none;
+  background-color: ${({$lightMode}) => $lightMode ? '#FCFCFC' : '#2B3844'};
   &:focus {
     outline: none;
   }

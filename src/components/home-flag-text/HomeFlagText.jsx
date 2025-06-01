@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import {
   StyledSubtitle,
   StyledSubtitleContainer,
@@ -6,24 +7,26 @@ import {
   StyledTextContainer,
   StyledTitle
 } from './home-flag-text';
+import { ModeContext } from '../../contexts/ModesContext';
 
 const HomeFlagText = ({ country }) => {
+  const { lightMode } = useContext(ModeContext);
   return (
     <StyledTextContainer>
-      <StyledTitle>{country.name.common}</StyledTitle>
+      <StyledTitle $lightMode={lightMode}>{country.name.common}</StyledTitle>
       <StyledSubtitleContainer>
         <StyledTagsContainer>
-          <StyledSubtitle>Population:</StyledSubtitle>
-          <StyledText>{country.population}</StyledText>
+          <StyledSubtitle $lightMode={lightMode}>Population:</StyledSubtitle>
+          <StyledText $lightMode={lightMode}>{country.population}</StyledText>
         </StyledTagsContainer>
         <StyledTagsContainer>
-          <StyledSubtitle>Region:</StyledSubtitle>
-          <StyledText>{country.region}</StyledText>
+          <StyledSubtitle $lightMode={lightMode}>Region:</StyledSubtitle>
+          <StyledText $lightMode={lightMode}>{country.region}</StyledText>
         </StyledTagsContainer>
 
         <StyledTagsContainer>
-          <StyledSubtitle>Capital:</StyledSubtitle>
-          <StyledText>{country.capital}</StyledText>
+          <StyledSubtitle $lightMode={lightMode}>Capital:</StyledSubtitle>
+          <StyledText $lightMode={lightMode}>{country.capital}</StyledText>
         </StyledTagsContainer>
       </StyledSubtitleContainer>
     </StyledTextContainer>

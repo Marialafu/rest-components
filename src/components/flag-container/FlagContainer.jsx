@@ -5,8 +5,11 @@ import {
   StyledGrid,
   StyledImg
 } from './flag-container.styled';
+import { useContext } from 'react';
+import { ModeContext } from '../../contexts/ModesContext';
 
 const FlagContainer = ({ countries }) => {
+  const { lightMode } = useContext(ModeContext);
   if (!countries) return;
   return (
     <StyledGrid>
@@ -16,7 +19,7 @@ const FlagContainer = ({ countries }) => {
           to={`country/${country.name.common}`}
           state={country}
         >
-          <StyledContainer>
+          <StyledContainer $lightMode={lightMode}>
             <StyledImg
               src={country.flags.png}
               alt={country.flags.alt}

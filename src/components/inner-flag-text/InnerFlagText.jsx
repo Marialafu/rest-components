@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import {
   StyledBoldText,
   StyledInnerContainer,
@@ -5,45 +6,57 @@ import {
   StyledText,
   StyledTitle
 } from './inner-flag-text';
+import { ModeContext } from '../../contexts/ModesContext';
 
 const InnerFlagText = ({ country }) => {
-  console.log(country);
+  const nativeName = Object.values(country.name.nativeName)[0].official;
+  const languages = Object.values(country.languages).join(', ');
+  const currencies = Object.values(country.currencies)[0];
+
+  const { lightMode } = useContext(ModeContext);
 
   return (
     <>
-      <StyledTitle>{country.name.common}</StyledTitle>
+      <StyledTitle $lightMode={lightMode}>{country.name.common}</StyledTitle>
       <StyledSubtitleContainer>
         <StyledInnerContainer>
-          <StyledText>
-            <StyledBoldText>Native Name:</StyledBoldText>CORREGIR
+          <StyledText $lightMode={lightMode}>
+            <StyledBoldText $lightMode={lightMode}>
+              Native Name:{' '}
+            </StyledBoldText>
+            {nativeName}
           </StyledText>
-          <StyledText>
-            <StyledBoldText>Population:</StyledBoldText>
+          <StyledText $lightMode={lightMode}>
+            <StyledBoldText $lightMode={lightMode}>Population: </StyledBoldText>
             {country.population}
           </StyledText>
-          <StyledText>
-            <StyledBoldText>Region:</StyledBoldText>
+          <StyledText $lightMode={lightMode}>
+            <StyledBoldText $lightMode={lightMode}>Region: </StyledBoldText>
             {country.region}
           </StyledText>
-          <StyledText>
-            <StyledBoldText>Sub Region:</StyledBoldText>
+          <StyledText $lightMode={lightMode}>
+            <StyledBoldText $lightMode={lightMode}>Sub Region: </StyledBoldText>
             {country.subregion}
           </StyledText>
-          <StyledText>
-            <StyledBoldText>Capital:</StyledBoldText>
+          <StyledText $lightMode={lightMode}>
+            <StyledBoldText $lightMode={lightMode}>Capital: </StyledBoldText>
             {country.capital}
           </StyledText>
         </StyledInnerContainer>
         <StyledInnerContainer>
-          <StyledText>
-            <StyledBoldText>Top Level Domain:</StyledBoldText>
+          <StyledText $lightMode={lightMode}>
+            <StyledBoldText $lightMode={lightMode}>
+              Top Level Domain:{' '}
+            </StyledBoldText>
             {country.tld}
           </StyledText>
-          <StyledText>
-            <StyledBoldText>Currencies:</StyledBoldText>
+          <StyledText $lightMode={lightMode}>
+            <StyledBoldText $lightMode={lightMode}>Currencies: </StyledBoldText>
+            {currencies.name}
           </StyledText>
-          <StyledText>
-            <StyledBoldText>Languajes</StyledBoldText>belgie
+          <StyledText $lightMode={lightMode}>
+            <StyledBoldText $lightMode={lightMode}>Languajes: </StyledBoldText>
+            {languages}
           </StyledText>
         </StyledInnerContainer>
       </StyledSubtitleContainer>

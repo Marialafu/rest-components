@@ -6,16 +6,30 @@ import {
   StyledTextMode,
   StyledTitle
 } from './header.styled';
+import { useContext } from 'react';
+import { ModeContext } from '../../contexts/ModesContext';
 
 const Header = () => {
+  const { lightMode, setLightMode } = useContext(ModeContext);
+
   return (
-    <StyledHeader>
+    <StyledHeader $lightMode={lightMode}>
       <Link to={'/'}>
-        <StyledTitle>Where in the world?</StyledTitle>
+        <StyledTitle $lightMode={lightMode}>Where in the world?</StyledTitle>
       </Link>
-      <StyledMode>
-        <StyledImgMode src='public/assets/images/light-mode.png' />
-        <StyledTextMode>Light Mode</StyledTextMode>
+      <StyledMode onClick={() => setLightMode(!lightMode)}>
+        {lightMode && (
+          <>
+            <StyledImgMode src='public/assets/images/light-mode.png' />
+            <StyledTextMode $lightMode={lightMode}>Light Mode</StyledTextMode>
+          </>
+        )}
+        {!lightMode && (
+          <>
+            <StyledImgMode src='public/assets/images/dark-mode.png' />
+            <StyledTextMode $lightMode={lightMode}>Dark Mode</StyledTextMode>
+          </>
+        )}
       </StyledMode>
     </StyledHeader>
   );

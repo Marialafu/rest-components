@@ -24,6 +24,7 @@ const StyledContainer = styled.div`
   border-radius: 0.3125rem;
   overflow: hidden;
   box-shadow: 0 0 0.4375rem 0.125rem rgba(0, 0, 0, 0.1);
+  background-color: ${({$lightMode}) => $lightMode ? '#FCFCFC' : '#2B3844'};
 
   @media screen and (min-width: 768px) {
     width: 16.5rem;
